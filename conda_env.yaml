@@ -1,0 +1,10 @@
+name: ds_tutorial
+dependencies:
+  - python=3.10
+  - pandas=2.0
+  - numpy=1.25
+  - scikit-learn=1.2
+  - black
+  - pytest
+  - pip
+  - ipykernel
