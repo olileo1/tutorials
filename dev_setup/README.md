@@ -13,7 +13,7 @@ Pros of *Local Setup*:
 * if you already own a Computer with Windows on it, there are not further costs involved
 * you learn a little bit of Linux and gain experience with working on a Linux environment
 
-Pros of [*Cloud Setup*](dev_setup/azure_ml/README.md):
+Pros of [*Cloud Setup*](azure_ml/README.md):
 
 * very easy and you can basically do anything with mouse clicks
 * Azure ML provides nice possibilities for you to work only via the Browser. So you don't need to install anything on your device, besides a Browser. This is perfect if you want to work from your Tablet or even Smartphone
