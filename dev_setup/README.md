@@ -8,7 +8,7 @@ If you already know how to setup your preferred Python Development Environment t
 
 ## *Local Setup* vs. *Cloud Setup*:
 
-Pros of *Local Setup*:
+Pros of [*Local Setup*](wsl/README.md):
 
 * if you already own a Computer with Windows on it, there are not further costs involved
 * you learn a little bit of Linux and gain experience with working on a Linux environment

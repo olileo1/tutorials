@@ -44,4 +44,4 @@ If you have at least heard about the requirements stated above, but haven't setu
 - Setting up a Python Coding Environment on Windows using WSL2, Anaconda and Visual Studio Code
 - Setting up a Python Coding Environment using Azure Machine Learning
 
-If you already have a working environment and you are already familiar with Python/Conda and Jupyter Notebooks you can directly start by opening one of the tutorial notebooks in the folders *coding* or *modeling*
+If you already have a working environment and you are already familiar with Python/Conda and Jupyter Notebooks you can directly start by cloning this repository and opening one of the tutorial notebooks in the folders *coding* or *modeling*.
