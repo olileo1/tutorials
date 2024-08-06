@@ -24,7 +24,7 @@ Just for now, please forget all your gut feelings and everything you think you k
 Now **Statistics** comes into play. The (frequentist*) statistical approach would be to collect data of rolling a dice. So you would sit down, role the dice a thousand times and for each die you write down the result. Then you would calculate the frequency of the numbers 1 to 6 and you will get a result like:
 
 * based on my 1000 throws the probability to role a 1 is *number of occurence of 1* divided by a thousand
-* based on my 1000 throws the probability to role a 2 is *number of occurence of 1* divided by a thousand
+* based on my 1000 throws the probability to role a 2 is *number of occurence of 2* divided by a thousand
 * etc.
 
 If you used a fair dice the probabilities will all be very close to 16.66/%. So we have seen two ways to get a **probabilistic model** that describes the features of rolling a dice:
@@ -36,4 +36,6 @@ And this is the core principle of applied statistics (and most of Machine Learni
 
 * We have some observations in the form of data from some real world phenomen
 * We use that observations to get a **probabilistic model** that describes the real world phenomen
-* We can use the model to make predictions about the future. If the model is good, our predictions will be good as well
+* We can use the model to make predictions about the future. If the model is good, our predictions will be good as well.
+
+In my words, the relationship between probability theory and statistics is, that **probability theory** helps you formulate a **probabilistic model** describing your real world phenomen, while **statistics** provides the tools to combine the assumptions, you packed into your **probabilistic model**, with real world observations.
