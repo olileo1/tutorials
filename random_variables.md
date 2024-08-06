@@ -1,10 +1,10 @@
 # Random Variables
 ## Theoretical Concept
-A random variable is a theoretical construct used in probability and statistics to model real-world phenomena. Random Variables are the key principle of statistics (and subsequently of most, if not all, Machine Learning Models). The key idea is, that every observation/data point we see is just the a random realization of a Random Variable. Let's consider this basic example:
+A random variable is a theoretical construct used in probability and statistics to model real-world phenomena. Random Variables are the key principle of statistics (and subsequently of most, if not all, Machine Learning Models). The key idea is, that every observation/data point we see is just the a random realization of a Random Variable. Let's consider following basic example:
 
-To most of us there is no doubt that in coin tossing the probability of the coin showing **head** is 50%. But have you ever thought about why this is? Maybe there is some scientific physical derivation of the law "In a coin toss the probability for **head** is 50% and the probability for **tail** is also 50%", but for the common human being it is just easier to just toss the coin $n$ times and then calculate the percentage of **head**. After that you will be very certain, that the probability for **head** is 50%, even if you don't know the physics behind it. So now you have a Model in your head when it comes to coin tossing and you can use this model. For example you would never take the bet "if head I pay you 10 if tail you pay me 30", because it would be unfair to have different payoffs for the same likelihood of winning.
+To most of us there is no doubt that in coin tossing the probability of the coin showing **head** is 50%. But have you ever thought about why this is? Maybe there is some scientific physical derivation of the law "In a coin toss the probability for **head** is 50% and the probability for **tail** is also 50%", but for the common human being it is easier to just toss the coin $n$ times and calculate the percentage of **head**. Doing so, you will be very certain, that the probability for **head** is 50%, even if you don't know the physics behind it. So now you have a Model in your head when it comes to coin tossing and you can use this model. For example you would never take the bet "if head I pay you 10 if tail you pay me 30", because it would be unfair to have different payoffs for the same likelihood of winning.
 
-In probability theory the coin toss is modelled as a random variable, usually denoted as $X$. So $X$ is the theoretical modell of the coin toss. Once you toss the coin and see a result you have an observation which is normally denoted as $x$. There is a very formal mathematical definition of a random variable, but as a simplification, we can say that a random variable represents an entire set of possible outcomes and their associated probabilities:
+In probability theory the coin toss is modelled as a random variable, usually denoted as $X$. So $X$ is the theoretical model of the coin toss. Once you toss the coin and see a result you have an observation which is normally denoted as $x$. There is a very formal mathematical definition of a random variable, but as a simplification, we can say that a random variable represents an entire set of possible outcomes and their associated probabilities:
 
 * **a set of possible outcomes**: For the coin toss it is {head, tail}. So we can say, if $x$ is a realization of $X$ ($x \sim X$), then $x$ can take the values $x=\text{head}$ or $x=\text{tail}$
 * **a probability distribution**: So we can say, the probability that any realization of $X$ shows head is 50% ($P[X=\text{head}] = 0.5$)
@@ -15,15 +15,15 @@ In probability theory the coin toss is modelled as a random variable, usually de
 ---
 
 ## Random Variables and Machine Learning/Statistical Modelling
-Let's consider the Coin Tossing again. Imagine I offer you the following:
+Let's consider the Coin Tossing again. Imagine me offering you the following:
 
 You can watch me toss a coin for a 1000 times. Then you are allowed to analyse the data of my 1000 coin tosses. After that you are allowed to place a bet on my next coin toss.
 
 So here is what will probably happen:
 
 1. I toss the coin a 1000 times and at each toss you write down the result. So your data looks like this: head, tail, taill, head, head, head, tail, tail, ...
-2. After my 1000th toss you have the count of how many times I tossed head and how many times I tossed tail. If it is a normal coin and everything is as usual, there will be roughly 500 times head and 500 times tail. If the coin is special for some reason you might end up with 800 **head** and 200 **tail**. You don't have enough time and information and also not the education in theoretical physics to being able to explain why the results are the way they are. But you trust me, that I don't cheat, so you are comfortable with your model, that tells you: the probability that the next toss will be **head** is the calculated percentage of **head** from the previous 1000 tosses. So your model takes the form of the following Random Variable $X$, with $P[X=\text{head}] = \frac{\text{number of head in observations}}{1000}$ and $P[X=\text{tail}] = \frac{\text{number of tail in observations}}{1000}$
-3. Now, we are the point where I offer you the bet: You can bet \\$10 on any outcome (head or tail). If you guess correctly you get \\$20. I toss the coin exactly the same time as the previus 1000 times. I don't cheat and you don't have any reason to believe that this coin toss will be any different then the ones before. If 800 of the last 1000 tosses were head, your model will tell you: "If you bet on head now, you will have an 80% chance of winning", and you will probably take the bet. If heads only occured 500 times you will probably think twice if you take a bet at all
+2. After my 1000th toss you have the count of how many times I tossed head and how many times I tossed tail. If it is a normal coin and everything is as usual, there will be roughly 500 times head and 500 times tail. If the coin is special for some reason you might end up with 800 **head** and 200 **tail**. You don't have enough time and information and also not the education in theoretical physics to being able to explain why the results are the way they are. But you trust, that I don't cheat, so you are comfortable with your model, that tells you: the probability for the next toss being **head** is the calculated percentage of **head** from the previous 1000 tosses. So your model takes the form of the following Random Variable $X$, with $P[X=\text{head}] = \frac{\text{number of head in observations}}{1000}$ and $P[X=\text{tail}] = \frac{\text{number of tail in observations}}{1000}$
+3. Now, we are the point where I offer you the bet: You can bet 10$ on any outcome (head or tail). If you guess correctly you get 20$. I toss the coin exactly the same time as the previus 1000 times. I don't cheat and you don't have any reason to believe that this coin toss will be any different from the ones before. If 800 of the last 1000 tosses were head, your model will tell you: "If you bet on head now, you will have an 80% chance of winning", and you will probably take the bet. If heads only occured 500 times you will probably think twice before taking a bet at all.
 
 So let's look at the three steps from a Machine Learning perspective:
 
@@ -31,7 +31,7 @@ So let's look at the three steps from a Machine Learning perspective:
 2. We trained our model (obviously a very easy and very simple model)
 3. We used the model to make predictions about future events, for which we don't know the outcome yet
 
-The **Moral of the Story** is, that almost (if not all) Machine Learning tasks can be considered as: Deriving a Theoretical Model, that can be formulate using the concept of Random Variables, using existing data. Using the probability distribution of this Model to predict future outcomes.
+The **Moral of the Story** is, that almost (if not all) Machine Learning tasks can be considered as: Deriving a Theoretical Model, that can be formulated based on the concept of Random Variables by using existing data and using the probability distribution of this Model to predict future outcomes.
 
 Of course when it comes to Machine Learning the models are much more complex, than the example with the coin toss, because you need to consider stuff like **dependent probabilities** and **multivariate random variables**.
 
@@ -45,7 +45,7 @@ Consider a random experiment where we measure the height of individuals in a pop
 ### Probability Density Function (PDF)
 Random Variables are mostly described by their probability density functions (PDF).
 
-The probability density function (PDF) $f(x)$ describes the likelihood of the random variable $X$ taking on a any value in a particular interval $[c_1, c_2)$. If we know the PDF $f(x)$ of a random variable $X$ we can calculate the probability that a realisation $x$ of $X$ lies in the interval $[c_1, c_2)$ by calculating the Integral:
+The probability density function (PDF) $f(x)$ describes the likelihood of the random variable $X$ taking on any value in a particular interval $[c_1, c_2)$. If we know the PDF $f(x)$ of a random variable $X$ we can calculate the probability that a realisation $x$ of $X$ lies in the interval $[c_1, c_2)$ by calculating the Integral:
 
 $$
 \int_{c_{1}}^{c_{2}} f(t) \, dt = P(c_1 \leq X < c_2)
@@ -53,16 +53,30 @@ $$
 
 The PDF is bascially the mathematical generalisation of a histogram.
 
+---- Comment Donatella:
+Coming back to the example dataset, where we measured the height of mulitple individuals in a population. If we would plot the PDF of this data, the x-axis would represent the measured height and the y-axis would represent the probability density. The curve would look like a bell curve (as it can be seen in the following plots), where most people have average height and only few people are extremely short or tall. Let's say the mean height of the population is 170 cm (this is where PDF would be the highest) and the standard deviation is 10cm. Then, the area under the curve between 160cm and 180cm would represent the probability of a person being between these heights. Note that the total area under the curve is 1, representing the total probability. 
+---- Comment Ende
+
 ### Cumulative Distribution Function (CDF)
 A concept that is closely related to the PDF is the concept of the CDF. The cumulative distribution function (CDF), denoted as $F(x)$, represents the probability that the random variable $X$ takes on a value less than or equal to $c$. The CDF is obtained by integrating the PDF:
 
 $$F(c) = \int_{-\infty}^{c} f(t) \, dt = P(X < c)$$
 
-#### Interactive Plot
-In the following interactive Plot you see how a histogram (something from the real world) relates to the theoretical concept of a probability distribution function. The histogram plots the histogram from a random sample from normal distributed values together with the PDF of a normal distribution.
-It is also possible to use histograms to heuristically explain why the probability that an observations $x$ of $X$ lies in the interval $[c_1, c_2)$ can be calculated using the integral. In the histogram below, the height of the bar equals the percentage of observations that lie between the left and right bound of the bar. This is roughly the area under the PDF curve in that interval.
+---- Comment Donatells:
+Using the height example, this would mean that the CDF for a height of e.g. 175cm gives the probability that a random person has a height less than or equal to 175cm. The CDF of 170 cm (our assumed mean height) would be 0.5 and indicates that with a 50% probability a person is shorter than or equal to 170 cm, or in other words there is a 50% chance that a randomly selected person is 170 cm or shorter.
+---- Comment Ende
 
-Below the CDF with the histogram you can see the CDF together with the empirical CDF (ECDF) calculated on the same random sample as the histogram.
+---- Comment Donatella:
+### Empirical CDF
+The empricical CDF represents the cumulative probability distribution, which in contrast to the theoratical CDF, is constructed directly from the observed data.
+---- Comment Ende
+
+#### Interactive Plot
+The following interactive plot shows, how a histogram (something from the real world) relates to the theoretical concept of a probability distribution function. The histogram plots the histogram from a random sample from normal distributed values together with the PDF of a normal distribution. **<--TODO: Glaube diesen Satz würde ich umschreiben**
+Also, it is possible to use histograms for the purpose of heuristically explaining why the probability of an observation $x$ of $X$, lying in the interval $[c_1, c_2)$, can be calculated using the integral.
+In the histogram below, the height of the bar equals the percentage of observations that lie between the left and right bound of the bar. This is roughly the area under the PDF curve in that interval.
+
+Below the histogram with corresponding PDF, you can see the plotted CDF together with the empirical CDF (ECDF), which were calculated using the same random sample as for the histogram.
 
 ```python
 import plotly.graph_objs as go
@@ -110,7 +124,6 @@ interactive_plot = interactive(update_plot, n=n_widget)
 # Display the widgets
 display(interactive_plot)
 ```
-
 ### Expected Value of a Random Variable
 The Expected Value of a Random Variable is defined as $$E(X) = \int_{-\infty}^{\infty} x f(x) \, dx$$
 So the Expected Value is basically a mathematical generalisation to the **sample mean**.
@@ -121,7 +134,7 @@ Again this is basically the mathematical generalisation of the **sample variance
 
 # Normal Distribution
 
-The **Normal Distribution**, also known as the **Gaussian Distribution**, is a continuous probability distribution that is symmetrical around its mean. It is one of the most important distributions in statistics and is often used to represent real-valued random variables whose distributions are not known. If we assume that a random variable $X$ is normal distributed we denote this as $X\sim N(\mu, \sigma)$
+The **Normal Distribution**, also known as the **Gaussian Distribution**, is a continuous probability distribution that is symmetrical around its mean. It is one of the most important distributions in statistics and is often used to represent real-valued random variables whose distributions are not known. If we assume that a random variable $X$ is normally distributed we denote this as $X\sim N(\mu, \sigma)$
 
 
 ## Probability Density Function (PDF)
@@ -144,7 +157,7 @@ $$
 f(z) = \frac{1}{\sqrt{2 \pi}} e^{-\frac{z^2}{2}}
 $$
 
-The PDF can be used to tell you the probability, that an observations of a standard normal distribution lies in a certain interval. For example the Probability that a random generated value $x$ of a standard normal distribution is bigger and $-1$ and smaller than $1$ an be calculated like this:
+The PDF can be used to tell you that the probability of an observations from a standard normal distribution lies in a certain interval. For example the Probability of a randomly generated value $x$ from a standard normal distribution, which is bigger than $-1$ and smaller than $1$ can be calculated like this:
 
 $$
 P(-1 \leq X < 1) = \int_{-1}^{1} \frac{1}{\sqrt{2 \pi}} e^{-\frac{t^2}{2}} \, dt
@@ -152,7 +165,7 @@ $$
 
 ## Relationship between PDF and CDF
 
-The **cumulative distribution function (CDF)** of a normal distribution is the integral of the probability density function (PDF). It represents the probability that a random variable \( X \) takes on a value less than or equal to \( x \). The CDF is given by:
+The **cumulative distribution function (CDF)** of a normal distribution is the integral of the probability density function (PDF). It represents the probability of a random variable \( X \) taking on a value less than or equal to \( x \). The CDF is given by:
 
 $$
 F(x) = P(X \leq x) = \int_{-\infty}^{x} f(t) \, dt
@@ -194,6 +207,8 @@ fig.update_layout(
 # Show the plot
 fig.show()
 ```
+
+The following plot visualizes the relation ship between the CDF and the PDF of a normal distribution.
 
 ```python
 import plotly.graph_objs as go
