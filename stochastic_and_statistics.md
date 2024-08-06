@@ -7,3 +7,5 @@ But I don't know a single of my friends that could explain to me 'why the chance
 
 * What possible outcomes do I expect from the process. In the case of rolling a dice we expect to either see 1, 2, 3, 4, 5, 6
 * What is the probability of any of the possible outcomes. In the case of rolling a fair dice we assume that it is 16.66/% for each of the possible outcomes
+
+**Probabilistic models** are a theoretical concept, that is used to model real world events. As is the case with most models, a **probabilistic model** is rarely perfect, but should be good enough 
