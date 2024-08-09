@@ -1,36 +1,19 @@
-Jupyter Notebook
-Untitled
-Last Checkpoint: vor ein paar Sekunden
-(autosaved)
-Current Kernel Logo
-voice_packet_core_alarming_ufkr7k6 
-File
-Edit
-View
-Insert
-Cell
-Kernel
-Widgets
-Help
-
-Markdown
-}
 # Anomalie-Detection and Robust Statistics: An Example based on Gaussian Distribution
-​
+
 ---
 **NOTE for Beta Readers**:
 This article requires an understanding of Statistical Models and the knowledge of some basic Statistical/Probability Theoretical Notation. I think it is best to either read the wikipedia articel on Statistical Models first or have it opened side by side to this article
-​
+
 ---
-​
+
 [Robust statistics are statistics that maintain their properties even if the underlying distributional assumptions are incorrect.](https://en.wikipedia.org/wiki/Robust_statistics)
-​
+
 Not many Data Science practitioners, that I have met heard about the field of **Robust Statistics**. I myself worked as a Data Scientist for 2 years, creating forecast models/etc., before I first heard about that field. At first the field seemed very abstract to me and more like scientific tinkering than anything applicable in Real World Problems. But once I got into it, I saw the importance of Robust Statistics for the task of Anomaly Detection and now I am convinced, that the key to solid Anomaly Detection methodology lies in the understanding of Robust Statistics. In this article I want to highlight the importance of that field for Anomaly Detection.
-​
+
 ## Revisiting the principles of Anomaly Detection
 Let's remember shortly the principles of Anomaly Detection (I will write a Section on that shortly but for now you can check the wikipedia article on [Statistical Model](https://en.wikipedia.org/wiki/Statistical_model)):
-​
-1. First we start with formulating our Assumptions in the form of a Statistical Model: $(\mathcal{S}, \mathcal{P})$, with $\mathcal{P}=\left\{F_{\theta}: \theta \in \Theta\right\}$. For example:
+
+1. First we start with formulating our Assumptions in the form of a Statistical Model: $(\mathcal{S}, \mathcal{P})$, with $$\mathcal{P}=\left\{F_{\theta}: \theta \in \Theta\right\}$$. For example:
     - We assume the height of female Dalmatians (dogs) is normal distributed with unknown parameters $\mu$ and $\sigma$. So $\mathcal{S} = \mathbb{R}$ and $\mathcal{P}=\left\{\mathcal{N}(\mu, \sigma): \mu \in \mathbb{R}, \sigma > 0\right\}$
     - We assume their is a linear relationship between the height and the weight of female Dalmatians (dogs) like this: $\text{weight} = \alpha + \beta\cdot\text{height} + \varepsilon$, where we assume that $\varepsilon \sim \mathcal{N}(0, \sigma)$. Given this Statistical Model (which is the Standard Form for Linear Regression) it is way more complicated to write down $\mathcal{S}$ and $\mathcal{P}$ in set form. (**For now you have to believe me, that it is possible, and wait for my article where I explain Statistical Models in General**)
 2. Then we fit the Parameters of our Statistical Model using an appropriate Methodology. So we get our fitted model $\hat{\mathcal{P}} = F_{\hat{\theta}}$. For example:
